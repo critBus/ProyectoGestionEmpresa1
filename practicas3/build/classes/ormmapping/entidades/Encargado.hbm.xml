@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: 
+License Type: Purchased
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="entidades.Encargado" table="encargado" schema="public" lazy="false">
+		<id name="id" column="id" type="integer" unsaved-value="0">
+			<generator class="sequence">
+				<param name="sequence">encargado_id_seq</param>
+			</generator>
+		</id>
+		<property name="nombre" column="nombre" type="string" length="255" not-null="true" lazy="false"/>
+		<property name="apellidos" column="apellidos" type="string" length="255" not-null="true" lazy="false"/>
+		<property name="correo" column="correo" type="string" length="255" not-null="true" lazy="false"/>
+		<property name="direccion" column="direccion" type="string" length="255" not-null="true" lazy="false"/>
+		<property name="phone" column="phone" type="integer" length="10" not-null="true" lazy="false"/>
+		<property name="cargo" column="cargo" type="string" length="255" not-null="true" lazy="false"/>
+		<many-to-one name="local" cascade="lock" column="localid" class="entidades.Local" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+	</class>
+</hibernate-mapping>

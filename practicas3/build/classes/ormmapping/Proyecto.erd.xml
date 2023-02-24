@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Model quotesql="1" tablecharset="" mysql_version="504" mssql_version="2005" derby_version="106" ingres_version="9">
+  <Entity name="usuario" schema="public" Unlogged="false" PKConstraintName="usuario_pkey" PKClustered="0">
+    <Column name="id">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>sequence</IDGenerator>
+      <IDGeneratorKey>usuario_id_seq</IDGeneratorKey>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes>
+        <UserType DBType="256">serial</UserType>
+      </UserTypes>
+    </Column>
+    <Column name="username">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="password">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="medios_basicos" schema="public" Unlogged="false" PKConstraintName="medios_basicos_pkey" PKClustered="0">
+    <Column name="id">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>sequence</IDGenerator>
+      <IDGeneratorKey>medios_basicos_id_seq</IDGeneratorKey>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes>
+        <UserType DBType="256">serial</UserType>
+      </UserTypes>
+    </Column>
+    <Column name="nombre">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="localid">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>local.id</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="local" schema="public" Unlogged="false" PKConstraintName="local_pkey" PKClustered="0">
+    <Column name="id">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>sequence</IDGenerator>
+      <IDGeneratorKey>local_id_seq</IDGeneratorKey>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes>
+        <UserType DBType="256">serial</UserType>
+      </UserTypes>
+    </Column>
+    <Column name="nombre">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="rol" schema="public" Unlogged="false" PKConstraintName="rol_pkey" PKClustered="0">
+    <Column name="id">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>sequence</IDGenerator>
+      <IDGeneratorKey>rol_id_seq</IDGeneratorKey>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes>
+        <UserType DBType="256">serial</UserType>
+      </UserTypes>
+    </Column>
+    <Column name="nombre">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="rol_usuario" schema="public" Unlogged="false" PKConstraintName="rol_usuario_pkey" PKClustered="0">
+    <Column name="rolid">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>rol.id</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="usuarioid">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>usuario.id</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="encargado" schema="public" Unlogged="false" PKConstraintName="encargado_pkey" PKClustered="0">
+    <Column name="id">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>sequence</IDGenerator>
+      <IDGeneratorKey>encargado_id_seq</IDGeneratorKey>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes>
+        <UserType DBType="256">serial</UserType>
+      </UserTypes>
+    </Column>
+    <Column name="nombre">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="apellidos">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="correo">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="direccion">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="phone">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="cargo">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="localid">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>local.id</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <ForeignKey name="fkrol_usuari422220">
+    <ReferenceTable>rol_usuario</ReferenceTable>
+    <ReferenceSchema>public</ReferenceSchema>
+    <ReferencedTable>rol</ReferencedTable>
+    <ReferencedSchema>public</ReferencedSchema>
+    <Columns>
+      <Column>rolid</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="fkrol_usuari220389">
+    <ReferenceTable>rol_usuario</ReferenceTable>
+    <ReferenceSchema>public</ReferenceSchema>
+    <ReferencedTable>usuario</ReferencedTable>
+    <ReferencedSchema>public</ReferencedSchema>
+    <Columns>
+      <Column>usuarioid</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="fkmedios_bas120821">
+    <ReferenceTable>medios_basicos</ReferenceTable>
+    <ReferenceSchema>public</ReferenceSchema>
+    <ReferencedTable>local</ReferencedTable>
+    <ReferencedSchema>public</ReferencedSchema>
+    <Columns>
+      <Column>localid</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="fkencargado981517">
+    <ReferenceTable>encargado</ReferenceTable>
+    <ReferenceSchema>public</ReferenceSchema>
+    <ReferencedTable>local</ReferencedTable>
+    <ReferencedSchema>public</ReferencedSchema>
+    <Columns>
+      <Column>localid</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id</Column>
+    </RefColumns>
+  </ForeignKey>
+</Model>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: 
+License Type: Purchased
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="entidades.Rol" table="rol" schema="public" lazy="false">
+		<id name="id" column="id" type="integer" unsaved-value="0">
+			<generator class="sequence">
+				<param name="sequence">rol_id_seq</param>
+			</generator>
+		</id>
+		<property name="nombre" column="nombre" type="string" length="255" not-null="true" lazy="false"/>
+		<set name="ORM_Usuario" table="rol_usuario" schema="public" lazy="true" cascade="save-update,lock">
+			<key column="rolid" not-null="true"/>
+			<many-to-many column="usuarioid" class="entidades.Usuario">
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>
